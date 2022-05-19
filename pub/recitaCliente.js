@@ -1,7 +1,15 @@
-document.addEventListener('DOMContentLoaded',function(){
-	document.getElementById("prueba").innerHTML="Este texto se inserto con un Script dentro de pub ";	
-	return false;	
-});
+
+// En el lado del cliente
+function recitar() {
+  const url = 'http://localhost:3000/recitar'
+  fetch(url).then(
+    response => response.json()
+  ).then(
+    data => {
+      document.getElementById("poema").innerHTML = data.text
+    }
+  )
+}
 
 
 
