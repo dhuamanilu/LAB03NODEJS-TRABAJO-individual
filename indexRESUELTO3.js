@@ -28,7 +28,7 @@ app.post('/', (request, response) => {
 	let htmlText = md.render(String(markDownText));
 	response.setHeader('Content-Type', 'application/json')
 	response.end(JSON.stringify({
-		text: htmlText
+		text: htmlText.replace(/\n/g, '<br>')
 	}))
 })
 
