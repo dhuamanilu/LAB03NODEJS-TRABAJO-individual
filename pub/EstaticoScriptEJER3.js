@@ -1,3 +1,4 @@
+
 // En el lado del cliente
 function recitar(markupText) {
   const url = 'http://localhost:3000/'
@@ -17,17 +18,19 @@ function recitar(markupText) {
     response => response.json()
   ).then(
     data => {
-      document.querySelector("#htmlCode").innerHTML = data.text
+      document.getElementById("htmlCode").innerHTML = data.text
     }
   )
 }
 document.addEventListener('DOMContentLoaded', function () {
-  const text = document.querySelector('#markupText')
-  document.querySelector('#markupForm').onsubmit = () => {
+  const text = document.getElementById('markupText')
+  document.getElementById('markupForm').onclick = () => {
+    console.log(text.value+"<-- esta es el text value");
     recitar(text.value)
     return false;
   }
 })
+
 
 
 
